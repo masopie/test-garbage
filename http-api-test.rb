@@ -1,7 +1,14 @@
 require "net/http"
+require "uri"
 
-url = 'http://www.hackertyper.com'
-response = Net::HTTP.get_response(URI.parse(url))
+uri = URI.parse("http://hackertyper.com/")
+  p uri
+
+response = Net::HTTP.get_response(uri)
+  p response
+  response.each do |a|
+    p a
+  end
 
 response_text = response.body
-puts response_text
+p response_text
